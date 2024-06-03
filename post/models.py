@@ -6,7 +6,7 @@ from django.db import models
 class Post(models.Model):
     
     title = models.CharField(max_length=50, verbose_name='название')
-    descrition = models.TextField(verbose_name='описпние')
+    description = models.TextField(verbose_name='описпние')
     image = models.ImageField(upload_to='img/post/', verbose_name='фото', null=True)
     created = models.DateTimeField(auto_now_add=True, verbose_name = 'дата')
     category = models.ForeignKey('post.Category', on_delete = models.SET_NULL, verbose_name = 'катагория', null=True)
