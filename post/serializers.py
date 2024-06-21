@@ -56,7 +56,7 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields =  '__all__'
-        depth = 1
+        # depth = 1
 
 
 class CategorySerializer(serializers.ModelSerializer):

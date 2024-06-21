@@ -8,7 +8,7 @@ from rest_framework.decorators import action
 from rest_framework.permissions import BasePermission, IsAuthenticated,IsAdminUser
 from post.models import Post, Category  
 from post.serializers import PostSerializer,CategorySerializer
-
+from post.permissions import UserPermissions
 # Create your views here.
 
 
@@ -16,7 +16,7 @@ from post.serializers import PostSerializer,CategorySerializer
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    permissions_classes = (IsAuthenticated,)
+    permission_classes = [UserPermissions,]
 
     @action(methods=['get'], detail = True)
     def category(self, request, pk=None):

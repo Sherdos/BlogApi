@@ -1,5 +1,6 @@
 from django.db import models
 
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -11,7 +12,7 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True, verbose_name = 'дата')
     category = models.ForeignKey('post.Category', on_delete = models.SET_NULL, verbose_name = 'катагория', null=True)
     count_like = models.PositiveIntegerField(verbose_name = 'лайки', default=0)
-    
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name = 'пользователь')
 
     class Meta:
         verbose_name = 'Пост'

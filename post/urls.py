@@ -4,6 +4,7 @@ from post import views as v
 from rest_framework import routers
 
 
+
 router = routers.DefaultRouter()
 router.register(r'posts', v.PostViewSet)
 
